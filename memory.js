@@ -60,6 +60,9 @@ function showGameBox(){
     totalImages.forEach((img)=>{
     const card = document.createElement("div");
     card.classList.add("card");
+    const cardInner = document.createElement("div");
+    cardInner.classList.add("card-inner");
+    
     const front = document.createElement("div");
     front.classList.add("front");
     const back = document.createElement("div");
@@ -68,8 +71,9 @@ function showGameBox(){
     image.src = img
 
     box.appendChild(card);
-    card.appendChild(front);
-    card.appendChild(back);
+    card.appendChild(cardInner); 
+    cardInner.appendChild(front);
+    cardInner.appendChild(back);
     back.appendChild(image);
 
       card.addEventListener('click', startGame);
