@@ -25,9 +25,9 @@ const scoreSpan = document.querySelector(".score span");
 const box = document.querySelector(".box");
 const messageBox = document.querySelector(".message");
 
-const MatchSound = new Audio("Match.wav");
-const WrongSound = new Audio("Wrong.wav");
-const WinSound = new Audio("Win.wav");
+const MatchSound = new Audio("sounds/Match.wav");
+const WrongSound = new Audio("sounds/Wrong.wav");
+const WinSound = new Audio("sounds/Win.wav");
 
 const images = [
     "https://i.pinimg.com/1200x/45/13/c2/4513c2e7cf4cbbc2577d0eb6785e1fe9.jpg",
@@ -108,11 +108,16 @@ function startGame(){
     secondPick = this;
 
     if(firstPick.querySelector(".back img").src === secondPick.querySelector(".back img").src){
+
+        MatchSound.pause();
+        MatchSound.currentTime = 0;
         MatchSound.play();
         score++;
         gameScore();
 
         if(score === 6){
+            WinSound.pause();
+            WinSound.currentTime = 0;
             WinSound.play();
 
             let message = "";
@@ -125,7 +130,6 @@ function startGame(){
                 message = `🤔 Oops! Looks like you need more memory training. Tries: ${count}, Time: ${time}.`;
             }
 
-           
             let div = document.createElement("div");
             div.textContent = message;
             messageBox.appendChild(div);
@@ -150,6 +154,8 @@ function startGame(){
         firstPick = null;
         secondPick = null;
     }else{
+        WrongSound.pause();
+        WrongSound.currentTime = 0;
         WrongSound.play();
         isBoardLocked = true;
         setTimeout(()=>{
@@ -164,7 +170,6 @@ function startGame(){
 
 }
 
-
 function previewCards(){
     const cards = document.querySelectorAll(".card");
     //div ထဲက ရှိပီးသား card ကို ပြန်ခေါ်ခြင်း
@@ -172,7 +177,7 @@ function previewCards(){
 
     setTimeout(()=>{
         cards.forEach((card)=>card.classList.remove("active"))
-    },1000)
+    },2000)
 }
 
 function startTimer(){

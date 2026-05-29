@@ -7,11 +7,13 @@
 }
 
 body{
+    min-height: 100vh;
     font-family: "Anton", sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap:10px;
     background: linear-gradient(to right, #3c0944 , #971f9e);
 } 
 
@@ -25,7 +27,7 @@ body{
     45deg var(--_space),
     #d892fe ,
     #9718ee 50%,
-    #1dbcc1 100%
+    #3beef4 100%
   );
   background-clip: text;
   color: transparent;
@@ -39,17 +41,20 @@ body{
     align-items: center;
     background: black;
     padding: 10px;
-    margin: 10px 0px;
     border: 5px solid transparent; /* Set your border width */
     border-image: linear-gradient(to right, #743ad5, #d53a9d,#36e4ea) 1; 
   
+}
+
+.timer p , .count p , .score p{
+    font-size: 1.5rem;
 }
 
 
 .box{
     display:grid;
     grid-template-columns: repeat(4,1fr);
-    gap:10px;
+    gap:15px;
     border: 5px solid transparent; /* Set your border width */
     border-image: linear-gradient(to right, #743ad5, #d53a9d,#3be7ed) 1; 
     padding:20px;
@@ -62,6 +67,7 @@ body{
     height:120px;
     border-radius: 20px;
     overflow: hidden;
+    perspective: 1000px;
     box-shadow: 0 0 7px #f6b9fe;
     position: relative;
 }
@@ -71,6 +77,8 @@ body{
 .back,.front{
     width: 100%;
     height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
     transition: transform 0.6s ease;
 }
 
@@ -103,11 +111,12 @@ body{
 .start button{
     color: #9365e2; 
     font-weight: 600;
-  box-shadow: 0 0 7px #f6b9fe;
-   cursor: pointer;
-   
-   border-radius: 8px;
-   padding:3px 10px;
+    box-shadow: 0 0 7px #f6b9fe;
+    cursor: pointer;
+    background-color: #000;
+    border:none;
+    border-radius: 8px;
+    padding:6px 12px;
     font-size: 20px;
     transition: transform 0.4s ease-in-out;
 }
@@ -148,6 +157,8 @@ body{
 }
 
 .message button{
+    background-color: #000;
+    color:#d53a9d;
     font-size: 18px;
     padding:6px 15px;
     border-radius: 6px;
@@ -163,4 +174,86 @@ body{
     transform: scale(1.05);
     box-shadow:0 0 10px #c3a1ff;
 }
+
+@media (max-width: 479px) {
+    .title {
+        font-size: 25px;
+    }
+
+    .stuff{
+        width: 330px;
+    }
+
+    .timer p, .count p, .score p{
+        font-size: 12px;
+    }
+
+    .box{
+         grid-template-columns: repeat(3,1fr);
+    }
+
+    .card{
+        width: 100px;
+        height: 100px;
+        border-radius: 15px;
+    }
+
+    .start button {
+        padding: 4px 10px;
+        font-size: 18px;
+    }
+
+    .message{
+        width:320px;
+    }
+
+    .message div{
+        font-size: 15px;
+    }
+
+    .message button{
+        font-size: 18px;
+        padding: 4px 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 30px;
+    }
+
+    .stuff{
+        width: 400px;
+        
+    }
+
+    .timer p, .count p, .score p{
+        font-size: 18px;
+    }
+
+    .card{
+        width: 110px;
+        height: 110px;
+        border-radius: 18px;
+    }
+
+    .start button {
+        padding: 5px 10px;
+        font-size: 18px;
+    }
+
+    .message{
+        width: 380px;
+    }
+
+    .message div{
+        font-size: 15px;
+    }
+
+    .message button{
+        font-size: 18px;
+        padding: 5px 13px;
+    }
+}
+
 
