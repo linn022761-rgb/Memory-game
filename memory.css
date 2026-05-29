@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+*,*::before,*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+
+body{
+    font-family: "Anton", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #3c0944 , #971f9e);
+} 
+
+.title{
+    font-size:35px;
+    font-weight: bold;
+   /* Default: sRGB interpolation */
+  --_space: ;
+
+  background-image: linear-gradient(
+    45deg var(--_space),
+    #d892fe ,
+    #9718ee 50%,
+    #1dbcc1 100%
+  );
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.stuff{
+    width: 90vmin;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: black;
+    padding: 10px;
+    margin: 10px 0px;
+    border: 5px solid transparent; /* Set your border width */
+    border-image: linear-gradient(to right, #743ad5, #d53a9d,#36e4ea) 1; 
+  
+}
+
+
+.box{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:10px;
+    border: 5px solid transparent; /* Set your border width */
+    border-image: linear-gradient(to right, #743ad5, #d53a9d,#3be7ed) 1; 
+    padding:20px;
+    background-color: #000;
+   
+}
+
+.card{
+    width:120px;
+    height:120px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 7px #f6b9fe;
+    position: relative;
+}
+
+
+
+.back,.front{
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease;
+}
+
+.front{
+    background-image: url("game.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition:transform 0.3s ease;
+}
+
+.back{
+    transform: rotateY(180deg);
+}
+
+.card.active .back{
+    transform: rotateY(0deg);
+}
+
+.card.active .front{
+    display: none;
+}
+
+.back img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.start button{
+    color: #9365e2; 
+    font-weight: 600;
+  box-shadow: 0 0 7px #f6b9fe;
+   cursor: pointer;
+   
+   border-radius: 8px;
+   padding:3px 10px;
+    font-size: 20px;
+    transition: transform 0.4s ease-in-out;
+}
+
+.start button:hover{
+    transform: scale(1.1);
+    box-shadow:0 0 10px #c3a1ff;
+    /* text-shadow:0 0 10px black, 0 0 20px white; */
+}
+
+.count, .count span{
+    color:red;
+}
+
+.score, .score span{
+    color:red;
+}
+
+.timer, .timer span{
+    color:red;
+}
+
+
+.message {
+    background: #000;
+    margin: 20px auto;
+    color: #d53a9d;
+    padding: 20px; 
+    border: 5px solid transparent; 
+    border-image: linear-gradient(to right, #743ad5, #d53a9d, #3be7ed) 1; 
+    
+    display: none; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 90vmin;
+}
+
+.message button{
+    font-size: 18px;
+    padding:6px 15px;
+    border-radius: 6px;
+    margin: 10px 0px;
+    cursor: pointer;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 0 7px #f6b9fe;
+    transition: transform 0.2s ease;
+}
+
+.message button:hover{
+    transform: scale(1.05);
+    box-shadow:0 0 10px #c3a1ff;
+}
+
